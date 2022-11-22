@@ -1,0 +1,38 @@
+naming server module will register the other three modules as 3 applications
+api-gateway will help to make connection of currency-exchange service and currency-conversion service.
+
+dummy values are already stored in sql file in currency-exchange service 
+
+1st -> install docker
+
+2nd -> docker run -d -p 9411:9411 openzipkin/zipkin //run this command in command prompt
+
+3rd -> open all those modules in eclipse
+
+4th -> run each module as maven build and write spring-boot: build-image -DskipsTest in goals box.
+
+5th -> go to the directory where docker-compose file is placed
+
+6th -> run command propmt or git bash there
+
+7th -> check your docker is running then write command docker-compose up
+
+8th -> it will take few seconds then go to http://localhost:9411. 
+
+you will see that how your apis are working and which module calls which one.
+
+you can also run your APIs individually...
+
+APIs are as follow:-
+
+currency-exchange:
+http://localhost:8000/currencyExchange/from/USD/to/PKR
+
+currency-conversion:
+http://localhost:8100/currencyConversion-feign/from/LEI/to/PKR/quantity/2.432
+
+api gate-way:
+http://localhost:8765/currencyExchange/from/USD/to/PKR
+
+http://localhost:8765/currencyConversion-feign/from/LEI/to/PKR/quantity/20.432
+	
